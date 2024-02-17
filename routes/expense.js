@@ -10,10 +10,11 @@ expenseRouter.get("/", async (request, response) => {
 
   const results = await collection.find({}).toArray();
 
-  return response.send(results);
+  return response.send(results).status(200);
 });
 
 expenseRouter.post("/", async (request, response) => {
+
   const body = request.body;
 
   const newExpense = {
